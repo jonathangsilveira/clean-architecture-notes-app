@@ -43,14 +43,18 @@ fun NoteScreen(
     }
     val scope = rememberCoroutineScope()
 
-    val message = stringResource(id = R.string.something_went_wrong)
+    val somethingWentWrongMsg = stringResource(id = R.string.something_went_wrong)
+    val noteAddedMsg = stringResource(id = R.string.note_saved)
     LaunchedEffect(key1 = true) {
         viewModel.eventFlow.collectLatest { event ->
             when(event) {
                 is NoteViewModel.UiEvent.ShowSnackbar -> {
-                    scaffoldState.snackbarHostState.showSnackbar(message)
+                    scaffoldState.snackbarHostState.showSnackbar(somethingWentWrongMsg)
                 }
-                is NoteViewModel.UiEvent.NoteSaved -> onNoteSaved()
+                is NoteViewModel.UiEvent.NoteSaved -> {
+                    scaffoldState.snackbarHostState.showSnackbar(noteAddedMsg)
+                    onNoteSaved()
+                }
             }
         }
     }

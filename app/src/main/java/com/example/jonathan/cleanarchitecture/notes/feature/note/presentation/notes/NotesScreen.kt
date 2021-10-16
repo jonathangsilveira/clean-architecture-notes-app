@@ -75,18 +75,19 @@ private fun NoteList(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clickable { onNoteClick(note) },
-                note = note
-            ) {
-                viewModel.onEvent(NotesEvents.Delete(note))
-                scope.launch {
-                    val result = scaffoldState.snackbarHostState.showSnackbar(
-                        message = "Note added",
-                        actionLabel = "Undo"
-                    )
-                    if (result == SnackbarResult.ActionPerformed)
-                        viewModel.onEvent(NotesEvents.Undo)
+                note = note,
+                onDelete = {
+                    viewModel.onEvent(NotesEvents.Delete(note))
+                    scope.launch {
+                        val result = scaffoldState.snackbarHostState.showSnackbar(
+                            message = "Note deleted",
+                            actionLabel = "Undo"
+                        )
+                        if (result == SnackbarResult.ActionPerformed)
+                            viewModel.onEvent(NotesEvents.Undo)
+                    }
                 }
-            }
+            )
             Spacer(modifier = Modifier.height(16.dp))
         }
     }
