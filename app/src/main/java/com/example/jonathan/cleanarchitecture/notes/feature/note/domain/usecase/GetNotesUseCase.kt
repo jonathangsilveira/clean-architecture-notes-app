@@ -16,7 +16,7 @@ class GetNotesUseCase(
     ): Flow<List<Note>> {
         return repo.getNotes()
             .map { notes ->
-                when (noteOrder.orderType) {
+                when (noteOrder.type) {
                     OrderType.Ascending -> notes.sortAsc(noteOrder)
                     OrderType.Descending -> notes.sortDesc(noteOrder)
                 }
