@@ -1,4 +1,4 @@
-package com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note.components
+package com.example.jonathan.cleanarchitecture.notes.feature.note.presentation.note.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,9 +13,9 @@ import androidx.compose.ui.text.TextStyle
 
 @Composable
 fun TransparentHintTextField(
+    modifier: Modifier = Modifier,
     text: String,
     hint: String,
-    modifier: Modifier = Modifier,
     isHintVisible: Boolean = true,
     onValueChange: (String) -> Unit,
     textStyle: TextStyle = TextStyle(),
@@ -26,13 +26,13 @@ fun TransparentHintTextField(
         modifier = modifier
     ) {
         BasicTextField(
+            modifier = Modifier
+                .fillMaxWidth()
+                .onFocusChanged { onFocusChange(it) },
             value = text,
             onValueChange = onValueChange,
             singleLine = singleLine,
-            textStyle = textStyle,
-            modifier = Modifier
-                .fillMaxWidth()
-                .onFocusChanged { onFocusChange(it) }
+            textStyle = textStyle
         )
         if (isHintVisible) {
             Text(text = hint, style = textStyle, color = Color.DarkGray)

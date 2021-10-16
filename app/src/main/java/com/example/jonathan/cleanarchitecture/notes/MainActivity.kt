@@ -17,7 +17,7 @@ import androidx.navigation.navArgument
 import com.example.jonathan.cleanarchitecture.notes.feature.note.presentation.note.util.Screen
 import com.example.jonathan.cleanarchitecture.notes.feature.note.presentation.notes.NotesScreen
 import com.example.jonathan.cleanarchitecture.notes.ui.theme.NotesAppTheme
-import com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note.NoteScreen
+import com.example.jonathan.cleanarchitecture.notes.feature.note.presentation.note.NoteScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

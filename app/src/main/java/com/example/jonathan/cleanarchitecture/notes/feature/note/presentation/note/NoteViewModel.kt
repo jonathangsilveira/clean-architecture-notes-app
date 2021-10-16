@@ -74,23 +74,29 @@ class NoteViewModel @Inject constructor(
     private fun changeContentFocus(focusState: FocusState) {
         val titleState = _title.value
         _title.value = titleState.copy(
-            isHintVisible = !focusState.isFocused && titleState.text.isEmpty()
+            isHintVisible = !focusState.isFocused && titleState.text.isBlank()
         )
     }
 
     private fun changeTitleFocus(focusState: FocusState) {
         val contentState = _content.value
         _content.value = contentState.copy(
-            isHintVisible = !focusState.isFocused && contentState.text.isEmpty()
+            isHintVisible = !focusState.isFocused && contentState.text.isBlank()
         )
     }
 
     private fun changeTitle(value: String) {
-        _title.value = _title.value.copy(text = value)
+        _title.value = _title.value.copy(
+            text = value,
+            isHintVisible = value.isBlank()
+        )
     }
 
     private fun changeContent(value: String) {
-        _content.value = _content.value.copy(text = value)
+        _content.value = _content.value.copy(
+            text = value,
+            isHintVisible = value.isBlank()
+        )
     }
 
     private fun save() {
