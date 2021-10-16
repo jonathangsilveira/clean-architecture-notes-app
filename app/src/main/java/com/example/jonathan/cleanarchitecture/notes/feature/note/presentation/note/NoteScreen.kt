@@ -1,4 +1,4 @@
-package com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note
+package com.example.jonathan.cleanarchitecture.notes.feature.note.presentation.note
 
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.core.tween
@@ -21,10 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.jonathan.cleanarchitecture.notes.R
 import com.example.jonathan.cleanarchitecture.notes.feature.note.domain.model.Note
-import com.example.jonathan.cleanarchitecture.notes.feature.note.presentation.note.NoteEvent
-import com.example.jonathan.cleanarchitecture.notes.feature.note.presentation.note.NoteViewModel
-import com.example.jonathan.cleanarchitecture.notes.feature.note.presentation.note.TextFieldState
-import com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note.components.TransparentHintTextField
+import com.example.jonathan.cleanarchitecture.notes.feature.note.presentation.note.components.TransparentHintTextField
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
